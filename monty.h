@@ -54,10 +54,11 @@ typedef struct temp
 	int data;
 	char *arg;
 } temp;
-
+temp global;
 void _error(char *argv);
 stack_t *add_node(stack_t **stack, const int n);
 stack_t *queue(stack_t **stack, const int n);
 void free_stack(stack_t *stack);
 size_t print(const stack_t *stack);
+void opcode(stack_t **stack, char *str, unsigned int line_cnt);
 #endif
