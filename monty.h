@@ -1,14 +1,17 @@
 #ifndef MONTY_H_
 #define MONTY_H_
 
+#define  _POSIX_C_SOURCE 200809L
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <stddef.h>
 
-FILE *file;
-int stat = 0;
+extern FILE *file;
+extern int stat;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -53,5 +56,8 @@ typedef struct temp
 } temp;
 
 void _error(char *argv);
-
+stack_t *add_node(stack_t **stack, const int n);
+stack_t *queue(stack_t **stack, const int n);
+void free_stack(stack_t *stack);
+size_t print(const stack_t *stack);
 #endif

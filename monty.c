@@ -5,9 +5,10 @@
  * @argcv: arguement vector
  * Return: 0 on success
  */
-int main(int argc, char *argv)
-{	
-	unsigned int len = 0, count = 1;
+int main(int argc, char **argv)
+{
+	FILE *file;	
+	size_t len = 0, count = 1;
 	char *command, *str;
 	stack_t *stack;
 	temp global;
@@ -16,7 +17,7 @@ int main(int argc, char *argv)
 	global.data = 1;
 	if (argc != 2)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv);
+		fprintf(stderr, "Error: Can't open file %s\n", *argv);
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
