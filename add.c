@@ -5,7 +5,7 @@
  * @line_counter: counts the line_number
  * Return: Nothing
  */
-void fe_add(stack_t **head, unsigned int line_counter)
+void function_add(stack_t **head, unsigned int line_counter)
 {
 	stack_t *h;
 	int length = 0, temp;

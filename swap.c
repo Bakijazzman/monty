@@ -5,7 +5,7 @@
  * @line_counter: it counts the line_number
  * Return: nothing
  */
-void fe_swap(stack_t **head, unsigned int line_counter)
+void function_swap(stack_t **head, unsigned int line_counter)
 {
 	stack_t *h;
 	int length = 0, temp;

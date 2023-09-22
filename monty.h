@@ -13,11 +13,11 @@
 #define OPERATIONS            \
 	{                           \
 		{"push", function_push},       \
-		    {"pall", f_pall},   \
-		    {"pint", f_pint},   \
-		    {"pop", f_pop},     \
-		    {"swap", f_swap},   \
-		    {"nop", f_nop},     \
+		    {"pall", function_pall},   \
+		    {"pint", function_pint},   \
+		    {"pop", function_pop},     \
+		    {"swap", function_swap},   \
+		    {"nop", function_nop},     \
 		    {"div", f_div},    \
 		    {"mul", f_mul},    \
 		    {"add", f_add},    \
@@ -27,8 +27,8 @@
 		    {"pstr", f_pstr},   \
 		    {"rotl", f_rotl},   \
 		    {"rotr", f_rotr},   \
-		    {"queue", f_queue}, \
-		    {"stack", f_stack},  \
+		    {"queue", function_queue}, \
+		    {"stack", function_stack},  \
 		{                     \
 			NULL, NULL      \
 		}                     \
@@ -82,14 +82,14 @@ char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void function_push(stack_t **head, unsigned int number);
-void f_pall(stack_t **head, unsigned int number);
-void f_pint(stack_t **head, unsigned int number);
+void function_pall(stack_t **head, unsigned int number);
+void function_pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
-void f_add(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
+void function_pop(stack_t **head, unsigned int line_counter);
+void function_swap(stack_t **head, unsigned int line_counter);
+void function_add(stack_t **head, unsigned int line_counter);
+void function_nop(stack_t **head, unsigned int counter);
 void f_sub(stack_t **head, unsigned int counter);
 void f_div(stack_t **head, unsigned int counter);
 void f_mul(stack_t **head, unsigned int counter);
@@ -100,6 +100,6 @@ void f_rotl(stack_t **head, unsigned int counter);
 void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
-void f_queue(stack_t **head, unsigned int counter);
-void f_stack(stack_t **head, unsigned int counter);
+void function_queue(stack_t **head, unsigned int line_counter);
+void function_stack(stack_t **head, unsigned int line_counter);
 #endif

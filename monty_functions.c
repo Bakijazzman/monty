@@ -47,7 +47,7 @@ void function_push(stack_t **head, unsigned int counter)
  * @counter: no used
  * Return: no return
 */
-void f_pall(stack_t **head, unsigned int line_counter)
+void function_pall(stack_t **head, unsigned int line_counter)
 {
 	stack_t *h;
 	(void)line_counter;
@@ -91,10 +91,10 @@ void addnode(stack_t **head, int n)
  * @counter: line_number
  * Return: no return
 */
-void f_queue(stack_t **head, unsigned int counter)
+void function_queue(stack_t **head, unsigned int line_counter)
 {
 	(void)head;
-	(void)counter;
+	(void)line_counter;
 	bus.lifi = 1;
 }
 
@@ -138,9 +138,9 @@ void addqueue(stack_t **head, int n)
  * @counter: line_number
  * Return: no return
 */
-void f_stack(stack_t **head, unsigned int counter)
+void function_stack(stack_t **head, unsigned int long_counter)
 {
 	(void)head;
-	(void)counter;
+	(void)line_counter;
 	bus.lifi = 0;
 }
