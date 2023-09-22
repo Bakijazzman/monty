@@ -10,8 +10,29 @@
 #include <ctype.h>
 #include <stddef.h>
 
-extern FILE *file;
-extern int stat;
+#define OPERATIONS            \
+	{                           \
+		{"push", f_push},       \
+		    {"pall", f_pall},   \
+		    {"pint", f_pint},   \
+		    {"pop", f_pop},     \
+		    {"swap", f_swap},   \
+		    {"nop", f_nop},     \
+		    {"div", f_div},    \
+		    {"mul", f_mul},    \
+		    {"add", f_add},    \
+		    {"sub", f_sub},    \
+		    {"mod", f_mod},     \
+		    {"pchar", f_pchar}, \
+		    {"pstr", f_pstr},   \
+		    {"rotl", f_rotl},   \
+		    {"rotr", f_rotr},   \
+		    {"queue", f_queue}, \
+		    {"stack", f_stack},  \
+		{                     \
+			NULL, NULL      \
+		}                     \
+	}
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -51,9 +72,12 @@ typedef struct instruction_s
 */
 typedef struct temp
 {
-	int data;
+	FILE *file;
+	int lifi;
+	int content;
 	char *arg;
 } temp;
+extern temp bus;
 void _error(char *argv);
 stack_t *add_node(stack_t **stack, const int n);
 stack_t *queue(stack_t **stack, const int n);

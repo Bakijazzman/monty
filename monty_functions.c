@@ -1,39 +1,43 @@
 #include "monty.h"
-
 /**
- * opcode - function in charge of running builtins
- * @stack: stack given by main
- * @str: string to compare
- * @line_cnt: amount of lines
- *
- * Return: nothing
- */
-void opcode(stack_t **stack, char *str, unsigned int line_cnt)
+ * f_push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void function_push(stack_t **head, unsigned int counter)
 {
-	int i = 0;
+	unsigned int n, i = 0, flag = 0;
 
-	instruction_t op[] = {};
-
-	if (!strcmp(str, "stack"))
+	if (bus.arg)
 	{
-		temp.data = 1;
-		return;
-	}
-	if (!strcmp(str, "queue"))
-	{
-		global.data = 0;
-		return;
-	}
-
-	while (op[i].opcode)
-	{
-		if (strcmp(op[i].opcode, str) == 0)
+		if (bus.arg[0] == '-')
+			i++;
+		for (; bus.arg[i] != '\0'; i++)
 		{
-			op[i].f(stack, line_cnt);
-			return; /* if we found a match, run the function */
+			if (bus.arg[i] > 57 || bus.arg[i] < 48)
+				flag = 1;
 		}
-		i++;
+		if (flag == 1)
+		{ 
+			fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE);
+		 }
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_cnt, str);
-	exit(EXIT_FAILURE);
+	else
+	{ 
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		addnode(head, n);
+	else
+		addqueue(head, n);
 }
