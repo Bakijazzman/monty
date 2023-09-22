@@ -62,7 +62,7 @@ typedef struct instruction_s
 *
 * Description: global structure used to pass data around the functions easily
 */
-typedef struct temp
+typedef struct temp_t
 {
 	FILE *file;
 	int lifi;
@@ -70,6 +70,9 @@ typedef struct temp
 	char *arg;
 } temp_t;
 extern temp_t bus;
+
+
+
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
