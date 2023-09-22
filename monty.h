@@ -54,7 +54,6 @@ typedef struct temp
 	int data;
 	char *arg;
 } temp;
-temp global;
 void _error(char *argv);
 stack_t *add_node(stack_t **stack, const int n);
 stack_t *queue(stack_t **stack, const int n);

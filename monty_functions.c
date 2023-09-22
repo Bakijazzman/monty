@@ -16,7 +16,7 @@ void opcode(stack_t **stack, char *str, unsigned int line_cnt)
 
 	if (!strcmp(str, "stack"))
 	{
-		global.data = 1;
+		temp.data = 1;
 		return;
 	}
 	if (!strcmp(str, "queue"))
