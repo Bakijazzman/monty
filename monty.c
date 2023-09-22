@@ -1,5 +1,5 @@
 #include "monty.h"
-//bus_t bus = {NULL, NULL, NULL, 0};
+temp_t bus = {NULL, 0, NULL, NULL};
 /**
 * main - monty code interpreter
 * @argc: number of arguments
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 		line_counter++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, counter, file);
+			execute(content, &stack, line_counter, file);
 		}
 		free(content);
 	}
