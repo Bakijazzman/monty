@@ -12,7 +12,7 @@
 
 #define OPERATIONS            \
 	{                           \
-		{"push", f_push},       \
+		{"push", function_push},       \
 		    {"pall", f_pall},   \
 		    {"pint", f_pint},   \
 		    {"pop", f_pop},     \
@@ -81,7 +81,7 @@ extern temp_t bus;
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
-void f_push(stack_t **head, unsigned int number);
+void function_push(stack_t **head, unsigned int number);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
