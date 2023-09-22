@@ -18,15 +18,7 @@
 		    {"pop", function_pop},     \
 		    {"swap", function_swap},   \
 		    {"nop", function_nop},     \
-		    {"div", f_div},    \
-		    {"mul", f_mul},    \
-		    {"add", f_add},    \
-		    {"sub", f_sub},    \
-		    {"mod", f_mod},     \
-		    {"pchar", f_pchar}, \
-		    {"pstr", f_pstr},   \
-		    {"rotl", f_rotl},   \
-		    {"rotr", f_rotr},   \
+		    {"add", function_add},    \
 		    {"queue", function_queue}, \
 		    {"stack", function_stack},  \
 		{                     \

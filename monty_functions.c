@@ -138,7 +138,7 @@ void addqueue(stack_t **head, int n)
  * @counter: line_number
  * Return: no return
 */
-void function_stack(stack_t **head, unsigned int long_counter)
+void function_stack(stack_t **head, unsigned int line_counter)
 {
 	(void)head;
 	(void)line_counter;
