@@ -23,7 +23,7 @@ void free_stack(stack_t *head)
 */
 void function_pint(stack_t **head, unsigned int counter)
 {
-	if (*head == NULL)
+	if (!*head)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 		fclose(bus.file);
@@ -41,9 +41,9 @@ void function_pint(stack_t **head, unsigned int counter)
 */
 void function_pop(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
+	stack_t *temp;
 
-	if (*head == NULL)
+	if (!*head)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
 		fclose(bus.file);
@@ -51,7 +51,7 @@ void function_pop(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	*head = h->next;
-	free(h);
+	temp = *head;
+	*head = temp->next;
+	free(temp);
 }
