@@ -76,7 +76,7 @@ char  *clean_line(char *content);
 void function_push(stack_t **head, unsigned int number);
 void function_pall(stack_t **head, unsigned int number);
 void function_pint(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+int command(char *buffer, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
 void function_pop(stack_t **head, unsigned int line_counter);
 void function_swap(stack_t **head, unsigned int line_counter);

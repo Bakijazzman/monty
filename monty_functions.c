@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * f_push - add node to the stack
+ * function_push - add node to the stack
  * @head: stack head
- * @counter: line_number
+ * @line_counter: line_number
  * Return: no return
 */
-void function_push(stack_t **head, unsigned int counter)
+void function_push(stack_t **head, unsigned int line_counter)
 {
 	unsigned int n, i = 0, flag = 0;
 
@@ -20,7 +20,7 @@ void function_push(stack_t **head, unsigned int counter)
 		}
 		if (flag == 1)
 		{ 
-			fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fprintf(stderr, "L%d: usage: push integer\n", line_counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
@@ -29,7 +29,7 @@ void function_push(stack_t **head, unsigned int counter)
 	}
 	else
 	{ 
-		fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", line_counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
@@ -42,26 +42,25 @@ void function_push(stack_t **head, unsigned int counter)
 		addqueue(head, n);
 }
 /**
- * f_pall - prints the stack
+ * function_pall - prints the stack
  * @head: stack head
- * @counter: no used
+ * @line_counter: no used
  * Return: no return
 */
 void function_pall(stack_t **head, unsigned int line_counter)
 {
-	stack_t *h;
+	stack_t *temp;
 	(void)line_counter;
 
-	h = *head;
-	if (h == NULL)
+	temp = *head;
+	if (!temp)
 		return;
-	while (h)
+	while (temp)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
-#include "monty.h"
 /**
  * addnode - add node to the head stack
  * @head: head of the stack
@@ -71,19 +70,19 @@ void function_pall(stack_t **head, unsigned int line_counter)
 void addnode(stack_t **head, int n)
 {
 
-	stack_t *new_node, *aux;
+	stack_t *new, *temp;
 
-	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	temp = *head;
+	new = malloc(sizeof(stack_t));
+	if (!new)
 	{ printf("Error\n");
 		exit(0); }
-	if (aux)
-		aux->prev = new_node;
-	new_node->n = n;
-	new_node->next = *head;
-	new_node->prev = NULL;
-	*head = new_node;
+	if (temp)
+		temp->prev = new;
+	new->n = n;
+	new->next = *head;
+	new->prev = NULL;
+	*head = new;
 }
 /**
  * f_queue - prints the top
@@ -106,30 +105,30 @@ void function_queue(stack_t **head, unsigned int line_counter)
 */
 void addqueue(stack_t **head, int n)
 {
-	stack_t *new_node, *aux;
+	stack_t *new, *temp;
 
-	aux = *head;
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	temp = *head;
+	new = malloc(sizeof(stack_t));
+	if (!new)
 	{
 		printf("Error\n");
 	}
-	new_node->n = n;
-	new_node->next = NULL;
-	if (aux)
+	new->n = n;
+	new->next = NULL;
+	if (temp)
 	{
-		while (aux->next)
-			aux = aux->next;
+		while (temp->next)
+			temp = temp->next;
 	}
-	if (!aux)
+	if (!temp)
 	{
-		*head = new_node;
-		new_node->prev = NULL;
+		*head = new;
+		new->prev = NULL;
 	}
 	else
 	{
-		aux->next = new_node;
-		new_node->prev = aux;
+		temp->next = new;
+		new->prev = temp;
 	}
 }
 /**
