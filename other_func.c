@@ -16,7 +16,7 @@ void free_stack(stack_t *head)
 	}
 }
 /**
- * f_pint - prints the top
+ * function_pint - prints the top
  * @head: stack head
  * @counter: line_number
  * Return: no return
@@ -34,7 +34,7 @@ void function_pint(stack_t **head, unsigned int counter)
 	printf("%d\n", (*head)->n);
 }
 /**
- * f_pop - prints the top
+ * function_pop - prints the top
  * @head: stack head
  * @counter: line_number
  * Return: no return
@@ -54,4 +54,16 @@ void function_pop(stack_t **head, unsigned int counter)
 	temp = *head;
 	*head = temp->next;
 	free(temp);
+}
+/**
+ * function_stack - prints the top
+ * @head: stack head
+ * @line_counter: line_number
+ * Return: no return
+*/
+void function_stack(stack_t **head, unsigned int line_counter)
+{
+	(void)head;
+	(void)line_counter;
+	bus.lifi = 0;
 }

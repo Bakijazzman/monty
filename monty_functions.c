@@ -19,16 +19,16 @@ void function_push(stack_t **head, unsigned int line_counter)
 				flag = 1;
 		}
 		if (flag == 1)
-		{ 
+		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
 			exit(EXIT_FAILURE);
-		 }
+		}
 	}
 	else
-	{ 
+	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_counter);
 		fclose(bus.file);
 		free(bus.content);
@@ -85,9 +85,9 @@ void addnode(stack_t **head, int n)
 	*head = new;
 }
 /**
- * f_queue - prints the top
+ * function_queue - prints the top
  * @head: stack head
- * @counter: line_number
+ * @line_counter: line_number
  * Return: no return
 */
 void function_queue(stack_t **head, unsigned int line_counter)
@@ -130,16 +130,4 @@ void addqueue(stack_t **head, int n)
 		temp->next = new;
 		new->prev = temp;
 	}
-}
-/**
- * f_stack - prints the top
- * @head: stack head
- * @counter: line_number
- * Return: no return
-*/
-void function_stack(stack_t **head, unsigned int line_counter)
-{
-	(void)head;
-	(void)line_counter;
-	bus.lifi = 0;
 }
