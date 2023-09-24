@@ -13,15 +13,20 @@
 #define OPERATIONS            \
 	{                           \
 		{"push", function_push},       \
-		    {"pall", function_pall},   \
-		    {"pint", function_pint},   \
-		    {"pop", function_pop},     \
-		    {"swap", function_swap},   \
-		    {"nop", function_nop},     \
-		    {"add", function_add},    \
-		    {"queue", function_queue}, \
-		    {"stack", function_stack},  \
-		    {"sub", function_sub},    \
+		{"pall", function_pall},   \
+		{"pint", function_pint},   \
+		{"pop", function_pop},     \
+		{"swap", function_swap},   \
+		{"nop", function_nop},     \
+		{"add", function_add},    \
+		{"queue", function_queue}, \
+		{"stack", function_stack},  \
+		{"sub", function_sub},    \
+		{"div", function_div},    \
+		{"mul", function_mul},     \
+		{"mod", function_mod},     \
+		{"pchar", function_pchar}, \
+		{"pstr", function_pstr},   \
 		{                     \
 			NULL, NULL      \
 		}                     \
