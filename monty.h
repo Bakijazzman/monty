@@ -21,6 +21,7 @@
 		    {"add", function_add},    \
 		    {"queue", function_queue}, \
 		    {"stack", function_stack},  \
+		    {"sub", function_sub},    \
 		{                     \
 			NULL, NULL      \
 		}                     \
@@ -83,12 +84,12 @@ void function_pop(stack_t **head, unsigned int line_counter);
 void function_swap(stack_t **head, unsigned int line_counter);
 void function_add(stack_t **head, unsigned int line_counter);
 void function_nop(stack_t **head, unsigned int counter);
-void f_sub(stack_t **head, unsigned int counter);
-void f_div(stack_t **head, unsigned int counter);
-void f_mul(stack_t **head, unsigned int counter);
-void f_mod(stack_t **head, unsigned int counter);
-void f_pchar(stack_t **head, unsigned int counter);
-void f_pstr(stack_t **head, unsigned int counter);
+void function_sub(stack_t **head, unsigned int line_counter);
+void function_div(stack_t **head, unsigned int line_counter);
+void function_mul(stack_t **head, unsigned int line_counter);
+void function_mod(stack_t **head, unsigned int line_counter);
+void function_pchar(stack_t **head, unsigned int line_counter);
+void function_pstr(stack_t **head, unsigned int line_counter);
 void f_rotl(stack_t **head, unsigned int counter);
 void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
 void addnode(stack_t **head, int n);
