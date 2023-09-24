@@ -29,3 +29,27 @@ void function_pchar(stack_t **head, unsigned int line_counter)
 	}
 	printf("%c\n", temp->n);
 }
+/**
+ * function_pstr - prints the string starting at the top of the stack,
+ * followed by a new
+ * @head: stack head
+ * @line_counter: line_number
+ * Return: no return
+*/
+void function_pstr(stack_t **head, unsigned int line_counter)
+{
+	stack_t *temp;
+	(void)line_counter;
+
+	temp = *head;
+	while (temp)
+	{
+		if (temp->n > 127 || temp->n <= 0)
+		{
+			break;
+		}
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
+}
