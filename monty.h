@@ -27,6 +27,8 @@
 		{"mod", function_mod},     \
 		{"pchar", function_pchar}, \
 		{"pstr", function_pstr},   \
+		{"rotl", function_rotl},    \
+		{"rotr", function_rotr},    \
 		{                     \
 			NULL, NULL      \
 		}                     \
@@ -95,8 +97,8 @@ void function_mul(stack_t **head, unsigned int line_counter);
 void function_mod(stack_t **head, unsigned int line_counter);
 void function_pchar(stack_t **head, unsigned int line_counter);
 void function_pstr(stack_t **head, unsigned int line_counter);
-void f_rotl(stack_t **head, unsigned int counter);
-void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
+void function_rotl(stack_t **head, __attribute__((unused)) unsigned int line_counter);
+void function_rotr(stack_t **head, __attribute__((unused)) unsigned int line_counter);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
 void function_queue(stack_t **head, unsigned int line_counter);
